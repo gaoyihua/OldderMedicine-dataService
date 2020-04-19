@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.project.dao.RecordMapper">
+  <resultMap id="BaseResultMap" type="com.company.project.model.Record">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="alarm" jdbcType="VARCHAR" property="alarm" />
+    <result column="main_text" jdbcType="VARCHAR" property="mainText" />
+    <result column="rate" jdbcType="VARCHAR" property="rate" />
+    <result column="medicine_info" jdbcType="VARCHAR" property="medicineInfo" />
+    <result column="tag" jdbcType="INTEGER" property="tag" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="text_date" jdbcType="VARCHAR" property="textDate" />
+    <result column="text_time" jdbcType="VARCHAR" property="textTime" />
+  </resultMap>
+</mapper>
