@@ -3,8 +3,6 @@ import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
 import com.company.project.model.Record;
 import com.company.project.service.RecordService;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -31,10 +29,39 @@ public class RecordController {
         return ResultGenerator.genSuccessResult();
     }
 
+    @PostMapping("/deleteByNum")
+    public Result deleteByNum(@RequestBody Record record) {
+        Record old = recordService.findBy("num", record.getNum());
+        recordService.deleteById(old.getId());
+        return ResultGenerator.genSuccessResult();
+    }
+
     @PostMapping("/update")
     public Result update(@RequestBody Record record) {
         recordService.update(record);
         return ResultGenerator.genSuccessResult();
+    }
+
+    @PostMapping("/updateByNum")
+    public Result updateByNum(@RequestBody Record record) {
+        Record old = recordService.findBy("num", record.getNum());
+        record.setId(old.getId());
+        recordService.update(record);
+        return ResultGenerator.genSuccessResult();
+    }
+
+    @PostMapping("/updateNumByNum")
+    public Result updateNumByNum(@RequestBody Record record) {
+        Record old = recordService.findBy("num", record.getNum());
+        old.setNum(old.getNum() - 1);
+        recordService.update(old);
+        return ResultGenerator.genSuccessResult();
+    }
+
+    @PostMapping("/findByNum")
+    public Result findByNum(@RequestBody Record record) {
+        Record old = recordService.findBy("num", record.getNum());
+        return ResultGenerator.genSuccessResult(old);
     }
 
     @PostMapping("/detail")

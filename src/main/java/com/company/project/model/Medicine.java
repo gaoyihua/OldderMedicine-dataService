@@ -17,6 +17,16 @@ public class Medicine {
 
     private Integer tag;
 
+    private String category;
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     /**
      * @return id
      */

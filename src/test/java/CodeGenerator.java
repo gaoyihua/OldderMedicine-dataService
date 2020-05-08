@@ -37,7 +37,7 @@ public class CodeGenerator {
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());//@date
 
     public static void main(String[] args) {
-        genCode("om_user");
+        genCode("medicine_process");
         //genCodeByCustomModelName("输入表名","输入自定义Model名称");
     }
 
@@ -104,6 +104,9 @@ public class CodeGenerator {
         tableConfiguration.setTableName(tableName);
         if (StringUtils.isNotEmpty(modelName))tableConfiguration.setDomainObjectName(modelName);
         tableConfiguration.setGeneratedKey(new GeneratedKey("id", "Mysql", true, null));
+        ColumnOverride columnOverride = new ColumnOverride("is_finish");
+        columnOverride.setJavaType("boolean");
+        tableConfiguration.addColumnOverride(columnOverride);
         context.addTableConfiguration(tableConfiguration);
 
         List<String> warnings;

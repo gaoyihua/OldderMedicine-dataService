@@ -14,4 +14,13 @@
     <result column="emergency_people" jdbcType="VARCHAR" property="emergencyPeople" />
     <result column="description" jdbcType="VARCHAR" property="description" />
   </resultMap>
+  <resultMap id="countResultMap" type="com.company.project.model.CountModel">
+    <collection property="list" ofType="integer">
+    </collection>
+  </resultMap>
+  <select id="fun" resultType="integer" >
+    select
+    count(name)
+    from om_user group by name
+  </select>
 </mapper>

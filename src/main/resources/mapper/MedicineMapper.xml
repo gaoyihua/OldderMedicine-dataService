@@ -11,5 +11,6 @@
     <result column="dosage" jdbcType="VARCHAR" property="dosage" />
     <result column="remain" jdbcType="INTEGER" property="remain" />
     <result column="tag" jdbcType="INTEGER" property="tag" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
   </resultMap>
 </mapper>
