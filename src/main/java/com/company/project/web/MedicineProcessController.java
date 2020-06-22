@@ -66,6 +66,7 @@ public class MedicineProcessController {
         Example.Criteria criteria = condition.createCriteria();
         criteria.andEqualTo("isFinish", isFinish);
         List<MedicineProcess> list = medicineProcessService.findByCondition(condition);
+        Collections.sort(list);
         return ResultGenerator.genSuccessResult(list);
     }
 
